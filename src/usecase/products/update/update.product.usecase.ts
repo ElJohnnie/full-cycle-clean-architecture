@@ -11,9 +11,13 @@ export default class UpdateProductUsecase {
     async execute(input: InputUpdateProductDto): Promise<OutputUpdateProductDto> {
         const product = await this.productRepository.find(input.id);
 
+        if (!product) {
+            throw new Error('Product not found');
+        }
+        
         product.changeName(input.name);
         product.changePrice(input.price);
-        
+
         await this.productRepository.update(product);
 
         return {

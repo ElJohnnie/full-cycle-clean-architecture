@@ -1,4 +1,3 @@
-import ProductRepositoryInterface from "../../../domain/product/repository/product-repository.interface";
 import { InputUpdateProductDto, OutputUpdateProductDto } from './update.product.dto';
 import UpdateProductUsecase from './update.product.usecase';
 import Product from '../../../domain/product/entity/product';
