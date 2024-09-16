@@ -20,6 +20,5 @@ export default class CreateProductUseCase {
       name: product.name,
       price: product.price,
     };
-
   }
 }

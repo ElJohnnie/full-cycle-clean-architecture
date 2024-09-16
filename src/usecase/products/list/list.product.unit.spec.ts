@@ -1,7 +1,7 @@
 import ProductRepositoryInterface from "../../../domain/product/repository/product-repository.interface";
 import { InputListProductDto, OutputListProductDto } from './list.product.dto';
 import Product from '../../../domain/product/entity/product';
-import { ListProductUseCase } from './list.product.usecase';
+import ListProductUseCase from './list.product.usecase';
 
 const product1 = new Product("123", "Product A", 100);
 const product2 = new Product("124", "Product B", 200);
