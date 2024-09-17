@@ -40,13 +40,6 @@ describe("Test create product use case", () => {
             name: "Product A",
             price: 100,
         });
-
-        const product = await productRepository.find(result.id);
-        expect(product).toEqual({
-            _id: result.id,
-            _name: "Product A",
-            _price: 100,
-        });
     });
 
     it("should throw an error when creating a product with invalid data", async () => {

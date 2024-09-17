@@ -13,6 +13,8 @@ export default class CreateProductUseCase {
       input.price
     ) as Product;
 
+    console.log(product);
+
     await this.productRepository.create(product);
 
     return {

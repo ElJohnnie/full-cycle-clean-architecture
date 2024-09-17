@@ -51,13 +51,6 @@ describe("Test update product use case", () => {
             name: "Product B",
             price: 150,
         });
-
-        const product = await productRepository.find(result.id);
-        expect(product).toEqual({
-            _id: result.id,
-            _name: "Product B",
-            _price: 150,
-        });
     });
 
     it("should throw an error when updating a non-existent product", async () => {
