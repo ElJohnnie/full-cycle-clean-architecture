@@ -3,28 +3,31 @@ import ValidatorInterface from "../../@shared/validator/validator.interface";
 import Product from "../entity/product";
 
 export default class ProductYupValidator implements ValidatorInterface<Product> {
-  validate(product: Product): void {
+  validate(entity: Product): void {
     const schema = yup.object().shape({
       id: yup.string().required("Id is required"),
       name: yup.string().required("Name is required"),
-      price: yup.number().required("Price is required").positive("Price must be positive"),
+      price: yup.number().required("Price is required").positive("Price must be greater than zero"),
     });
 
     try {
       schema.validateSync(
         {
-          id: product.id,
-          name: product.name,
-          price: product.price,
+          id: entity.id,
+          name: entity.name,
+          price: entity.price,
         },
         {
           abortEarly: false,
         }
       );
     } catch (errors) {
-      const yupErrors = errors as yup.ValidationError;
-      yupErrors.errors.forEach((error) => {
-        product.notification.addError(error);
+      const e = errors as yup.ValidationError;
+      e.errors.forEach((error) => {
+        entity.notification.addError({
+          context: "products",
+          message: error,
+        });
       });
     }
   }
