@@ -1,8 +1,9 @@
+import ProductInterface from "./product-interface";
 import NotificationError from "../../@shared/notification/notification.error";
 import ProductValidatorFactory from "../factory/product.validator.factory";
 import Entity from '../../@shared/entity/entity.abstract';
 
-export default class Product extends Entity {
+export default class Product extends Entity implements ProductInterface {
   private _name: string;
   private _price: number;
 

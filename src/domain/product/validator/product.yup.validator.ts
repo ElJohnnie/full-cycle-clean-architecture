@@ -1,9 +1,9 @@
 import * as yup from "yup";
 import ValidatorInterface from "../../@shared/validator/validator.interface";
-import Product from "../entity/product";
+import ProductInterface from "../entity/product-interface";
 
-export default class ProductYupValidator implements ValidatorInterface<Product> {
-  validate(entity: Product): void {
+export default class ProductYupValidator implements ValidatorInterface<ProductInterface> {
+  validate(entity: ProductInterface): void {
     const schema = yup.object().shape({
       id: yup.string().required("Id is required"),
       name: yup.string().required("Name is required"),
